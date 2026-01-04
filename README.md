@@ -1,16 +1,20 @@
-# React + Vite
+🚀 Sultanul Arafin | Beyond the ConsoleIndustry-Grade Solutions. Scalable Architectures. Impactful Engineering.A high-performance, professional software engineering portfolio built with a focus on MERN Stack expertise, disciplined system design, and immersive user experiences. This project utilizes advanced animation orchestrations and glassmorphism design language to bridge the gap between complex backend logic and elegant frontend presentation.🛠️ Technical StackCategoryTechnologiesFrontend CoreReact 18, Vite, Tailwind CSS, DaisyUIAnimation EngineGSAP (GreenSock), Framer MotionIcons & UILucide React, React IconsCommunicationEmailJS (Client-side SMTP)State & RoutingReact Router v7, React Hooks🌟 Key Engineering Features1. Neural Dynamic BackgroundStatic Layer: Fixed ambient blobs moving in a "neural" pattern using GSAP.Parallax Layer: A secondary "middle" layer of tech-nodes and grid-lines that scrolls at 50% velocity, creating a deep-field 3D effect.2. Precision Focus CursorA custom dual-layer cursor (Dot + Ring) built with gsap.quickTo for zero-lag performance.Intelligent Morphing: The ring shrinks and sharpens when hovering over interactive elements to focus the user's attention without obstructing content.3. Shuffling Project GalleryA 3-layer glassmorphism stack that shuffles images every 4 seconds.Uses Framer Motion AnimatePresence and layout props to physically animate the "z-index swap," giving projects a tactile, physical presence.4. Scroll-Spy NavigationA "Dock" style navbar with a magnetic sliding pill that automatically tracks the user's position using the IntersectionObserver API.5. System Boot SkeletonA custom-designed skeleton loader that mimics the Bento-grid architecture, ensuring a smooth "system boot" feel while heavy assets and GSAP orchestrations initialize.🎨 Theme System
+The portfolio features a custom dual-theme engine:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+☕ Coffee (Default): A deep, disciplined dark theme with gold and charcoal accents.
 
-Currently, two official plugins are available:
+❄️ Nord: A high-contrast, clean light theme inspired by arctic palettes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📡 Contact System
+The contact section is integrated with EmailJS, featuring:
 
-## React Compiler
+Validation: Full client-side form validation.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Feedback: An immersive Framer Motion Success Modal upon successful signal transmission.
 
-## Expanding the ESLint configuration
+Direct Mapping: Uses {{name}}, {{email}}, and {{message}} templates for clean inbox management.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📄 License
+This project is built as a personal professional showcase. Feel free to explore the code for educational purposes.
+
+Designed & Engineered by Sultanul Arafin © 2026
