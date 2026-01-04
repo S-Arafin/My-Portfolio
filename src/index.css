@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "coffee";
+  default: true;
+  --color-primary: #DB924B;
+  --color-secondary: #263141;
+  --color-accent: #10576D;
+  --color-neutral: #120C12;
+  --color-base-100: #20161F;
+}
+
+@plugin "daisyui/theme" {
+  name: "nord";
+  default: false;
+  --color-primary: #5E81AC;
+  --color-secondary: #81A1C1;
+  --color-accent: #88C0D0;
+  --color-neutral: #2E3440;
+  --color-base-100: #ECEFF4;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Ensure the HTML doesn't block the background */
+    background-color: var(--color-base-100); 
+  }
+
+  body {
+    /* Critical: Set body to transparent so fixed BG shows through */
+    background-color: transparent !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Force the React root to be transparent */
+  #root {
+    background-color: transparent !important;
+  }
+}
+
+@layer utilities {
+  /* Enhanced Glass for better visibility with Dynamic BG */
+  .glass-card {
+    @apply bg-base-100/10 backdrop-blur-3xl border border-white/10 shadow-2xl;
+    -webkit-backdrop-filter: blur(60px);
+  }
+
+  /* Custom utility to fix layout-shift during GSAP animations */
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+
+  /* Professional Noise Overlay */
+  .bg-noise {
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    filter: contrast(150%) brightness(100%);
+  }
+}
