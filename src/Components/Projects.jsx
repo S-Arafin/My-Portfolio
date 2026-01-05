@@ -55,7 +55,6 @@ const projectData = [
   }
 ];
 
-// Helper Component for Shuffling Images
 const ShufflingGallery = ({ images }) => {
   const [imgList, setImgList] = useState(images);
 
@@ -63,20 +62,19 @@ const ShufflingGallery = ({ images }) => {
     const interval = setInterval(() => {
       setImgList((prev) => {
         const [first, ...rest] = prev;
-        return [...rest, first]; // Move front image to back
+        return [...rest, first]; 
       });
-    }, 4000); // Shuffles every 4 seconds
+    }, 4000); 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative h-[350px] md:h-[500px] w-full flex items-center justify-center">
+    /* REDUCED GAP: Adjusted height on mobile (h-[200px]) to pull text up closer */
+    <div className="relative h-[200px] sm:h-[300px] md:h-[500px] w-full flex items-center justify-center">
       <AnimatePresence mode="popLayout">
         {imgList.map((src, index) => {
-          // Define positions based on current index in the shuffled array
           const isFront = index === 0;
           const isMiddle = index === 1;
-          const isBack = index === 2;
 
           return (
             <motion.div
@@ -87,13 +85,13 @@ const ShufflingGallery = ({ images }) => {
                 opacity: isFront ? 1 : isMiddle ? 0.6 : 0.3,
                 scale: isFront ? 1 : isMiddle ? 0.9 : 0.8,
                 zIndex: isFront ? 30 : isMiddle ? 20 : 10,
-                rotate: isFront ? 0 : isMiddle ? 8 : -12,
-                x: isFront ? 0 : isMiddle ? 40 : -40,
-                y: isFront ? 0 : isMiddle ? -20 : 20,
+                rotate: isFront ? 0 : isMiddle ? 5 : -8,
+                x: isFront ? 0 : isMiddle ? 20 : -20,
+                y: isFront ? 0 : isMiddle ? -15 : 15,
               }}
               exit={{ opacity: 0, scale: 0.5, x: 100 }}
               transition={{ type: "spring", stiffness: 200, damping: 25 }}
-              className={`absolute w-[85%] md:w-[90%] aspect-video rounded-[2rem] overflow-hidden border-2 border-white/20 shadow-2xl backdrop-blur-md cursor-pointer`}
+              className={`absolute w-[90%] md:w-[90%] aspect-video rounded-2xl md:rounded-[2rem] overflow-hidden border-2 border-white/20 shadow-2xl backdrop-blur-md cursor-pointer`}
             >
               <img src={src} alt="Project Screenshot" className="w-full h-full object-cover" />
               {!isFront && <div className="absolute inset-0 bg-base-100/40 backdrop-blur-sm" />}
@@ -130,56 +128,58 @@ const Projects = () => {
   }, { scope: container });
 
   return (
-    <section id="projects" ref={container} className="py-32 px-6 md:px-12 max-w-7xl mx-auto perspective-2000">
-      <div className="mb-24 space-y-4">
-        <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
+    <section id="projects" ref={container} className="py-16 md:py-32 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto perspective-2000 overflow-hidden">
+      
+      <div className="mb-12 md:mb-24 space-y-4 text-center lg:text-left">
+        <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter leading-none">
           Featured <span className="text-primary italic">Systems.</span>
         </h2>
-        <div className="text-2xl md:text-3xl font-bold text-base-content/60">
+        <div className="text-lg sm:text-2xl md:text-3xl font-bold text-base-content/60">
           {typeEffect}<Cursor />
         </div>
       </div>
 
-      <div className="project-grid grid grid-cols-1 gap-40">
+      <div className="project-grid grid grid-cols-1 gap-12 md:gap-40">
         {projectData.map((project, idx) => (
           <motion.div 
             key={idx}
-            className={`project-card p-8 md:p-16 rounded-[4rem] bg-gradient-to-br ${project.accent} border border-white/10 backdrop-blur-3xl shadow-2xl relative group`}
+            className={`project-card p-6 sm:p-10 md:p-16 rounded-[2.5rem] md:rounded-[4rem] bg-gradient-to-br ${project.accent} border border-white/10 backdrop-blur-3xl shadow-2xl relative group`}
           >
-            <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-center relative z-10">
-              <div className="space-y-8 order-2 lg:order-1">
+            {/* REDUCED GAP: Changed gap-10 to gap-4 for mobile to tighten space between gallery and title */}
+            <div className="grid lg:grid-cols-[1fr_1.2fr] gap-4 md:gap-16 items-center relative z-10">
+              
+              <div className="space-y-6 md:space-y-8 order-2 lg:order-1 text-center lg:text-left">
                 <div>
-                  <h3 className="text-5xl md:text-7xl font-black tracking-tighter mb-2">{project.title}</h3>
-                  <p className="text-lg font-bold text-primary tracking-widest uppercase opacity-80">{project.subtitle}</p>
+                  <h3 className="text-3xl sm:text-5xl md:text-7xl font-black tracking-tighter mb-2">{project.title}</h3>
+                  <p className="text-xs sm:text-lg font-bold text-primary tracking-widest uppercase opacity-80">{project.subtitle}</p>
                 </div>
 
-                <p className="text-xl leading-relaxed opacity-70 italic">
+                <p className="text-base sm:text-xl leading-relaxed opacity-70 italic">
                   {project.description}
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
                   {project.architecture.map((arch, i) => (
-                    <div key={i} className="p-5 rounded-3xl bg-base-100/40 border border-white/5 backdrop-blur-md">
-                      <div className="flex items-center gap-2 mb-2 text-primary">
+                    <div key={i} className="p-4 md:p-5 rounded-2xl md:rounded-3xl bg-base-100/40 border border-white/5 backdrop-blur-md">
+                      <div className="flex items-center justify-center lg:justify-start gap-2 mb-2 text-primary">
                         {arch.icon}
-                        <span className="text-[11px] font-black uppercase tracking-widest">{arch.label}</span>
+                        <span className="text-[9px] sm:text-[11px] font-black uppercase tracking-widest">{arch.label}</span>
                       </div>
-                      <p className="text-[12px] font-medium opacity-60 leading-snug">{arch.detail}</p>
+                      <p className="text-[10px] sm:text-[12px] font-medium opacity-60 leading-snug">{arch.detail}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-4 pt-4">
-                  <a href={project.live} target="_blank" rel="noreferrer" className="btn btn-primary rounded-full px-10 shadow-xl shadow-primary/30">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-4 justify-center lg:justify-start">
+                  <a href={project.live} target="_blank" rel="noreferrer" className="btn btn-primary rounded-full px-8 md:px-10 shadow-xl shadow-primary/30 text-sm md:text-base">
                     Live Demo <ExternalLink size={18}/>
                   </a>
-                  <a href={project.clientRepo} target="_blank" rel="noreferrer" className="btn btn-outline rounded-full px-10">
+                  <a href={project.clientRepo} target="_blank" rel="noreferrer" className="btn btn-outline rounded-full px-8 md:px-10 text-sm md:text-base">
                     Source Code <Github size={18}/>
                   </a>
                 </div>
               </div>
 
-              {/* Shuffling Image Gallery Column */}
               <div className="order-1 lg:order-2">
                 <ShufflingGallery images={project.images} />
               </div>
