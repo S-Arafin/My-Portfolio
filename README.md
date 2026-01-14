@@ -26,7 +26,7 @@ A high-performance, professional software engineering portfolio built with a foc
   </tr>
   <tr>
     <td><b>Frontend Core</b></td>
-    <td>React 18, Vite, Tailwind CSS, DaisyUI</td>
+    <td>React 19, Vite, Tailwind CSS, DaisyUI</td>
   </tr>
   <tr>
     <td><b>Animation Engine</b></td>
